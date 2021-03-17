@@ -5,6 +5,7 @@ from flask import (
     url_for
 )
 from flask_sqlalchemy import SQLAlchemy
+from models import Receita
 
 app = Flask(__name__)
 
@@ -13,7 +14,6 @@ app.config.from_object('config.DevelopmentConfig')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-from models import Receita
 
 @app.route("/")
 def home():
@@ -24,20 +24,21 @@ def home():
 @app.route("/receita/<id_>")
 def get_receita_by_id(id_):
     try:
-        receita=Receita.query.filter_by(id=id_).first()
+        receita = Receita.query.filter_by(id=id_).first()
     except Exception as e:
         return(str(e))
 
     return render_template("receita.html", receita=receita)
 
-@app.route("/add/receita",methods=['GET', 'POST'])
+
+@app.route("/add/receita", methods=['GET', 'POST'])
 def add_receita_form():
     if request.method == 'POST':
-        nome=request.form.get('nome')
-        autor=request.form.get('autor')
-        publicado_em=request.form.get('publicado_em')
+        nome = request.form.get('nome')
+        autor = request.form.get('autor')
+        publicado_em = request.form.get('publicado_em')
         try:
-            receita=Receita(
+            receita = Receita(
                 nome=nome,
                 autor=autor,
                 publicado_em=publicado_em
@@ -52,3 +53,4 @@ def add_receita_form():
 
 if __name__ == '__main__':
     app.run()
+
