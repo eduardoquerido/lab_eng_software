@@ -55,10 +55,17 @@
 
 > sudo -u <name_of_user> createdb receitas
 
-#### Para aplicar as migrações (após ter criado o banco)
+#### Para criar as migrações iniciais (após ter criado o banco)
 
-> python manage.py db migrate 
+> python manage.py db init
 
+#### Para atualizar as migrações (após ter criado o banco)
+
+> python manage.py db migrate
+
+#### Para aplicar as migrações
+
+> python manage.py db upgrade
 
 #### Para rodar a aplicação
 

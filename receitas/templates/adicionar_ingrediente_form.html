@@ -1,4 +1,15 @@
 {% extends  "base.html" %}
+{% block extra_css %}
+<style>
+    button {
+        float: right;
+    },
+    a {
+        float:right;
+        background-color: #ffffff;
+    }
+</style>
+{% endblock %}
 {% block content %}
 <body>
     <div class="container">
@@ -8,29 +19,17 @@
             <br>
 
             <div class="row align-items-center justify-content-center">
-                <h1>Adicionar Receita</h1>
+                <h1>Novo Ingrediente</h1>
             </div>
             <br>
 
             <form method="POST">
 
-                <label for="name">Nome da Receita</label>
+                <label for="name">Nome do Ingrediente</label>
                 <div class="form-row">
-                    <input class="form-control" type="text" placeholder="Nome da Receita" id="nome" name="nome">
+                    <input class="form-control" type="text" placeholder="Nome do Ingrediente" id="nome" name="nome">
                 </div>
                 <br>
-                <div class="form-row">
-                    <label for="author">Autor</label>
-                    <input class="form-control" type="text" placeholder="Nome do Autor" id="autor" name="autor">
-                </div>
-                <br>
-                <div class="form-row ">
-                    <label for="published">Publicado em</label>
-                    <input class="form-control" type="date" placeholder="Publicado em" id="publicado" name="publicado_em">
-                </div>
-
-                <br>
-
                 <div>
                     <button type="submit" class="button button-publicar">Publicar</button>
                 </div>

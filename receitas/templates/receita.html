@@ -1,14 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Receitas {% endblock %}</h1>
+    <h1>{% block title %} Receita {{receita.nome}} {% endblock %}</h1>
     <ul>
-       <a href="">{{receita}}</a>
-       <li>{{receita.id}}</li>
-       <li>{{receita.nome}}</li>
-       <li>{{receita.autor}}</li>
-       <li>{{receita.publicado_em}}</li>
+       <!-- <a href="">{{receita}}</a> -->
+       <li>Nome: {{receita.nome}}</li>
+       <li>Autor: {{receita.autor}}</li>
+       <li>Publicado em: {{receita.publicado_em}}</li>
     </ul>
+    <h3>Ingredientes da Receita</h3>   
+    <ul>
+      {% for ingrediente in receita.ingredientes %}
+        <li>{{ingrediente}}</li>
+       {% endfor %}
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <td><strong>Ingrediente</strong></td>
+                <td><strong>Quantidade</strong></td>
+            </tr>          
+        </thead>
+      {% for key, value in ingredientes.items() %}
+        <tbody>
+            <tr>
+              <td>{{key}}</td>
+              <td>{{value}}</td>
+            </tr>             
+        </tbody>
+      {%endfor%}
+  </table>        
+    <br>
     <div>
         <a href="{{url_for('home')}}" class="btn btn-secondary ">Voltar</a>
     </div>    
