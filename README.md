@@ -12,6 +12,10 @@ Aluno: Eduardo Ferreira Rumbelsperger Querido
 
 Link: https://youtu.be/KLL80FPHefA
 
+## Entrega 2 - Vídeo do Protótipo Navegável
+
+Link: https://youtu.be/Hu9J6St5AWQ
+
 ## Tecnologias
 
 * [Flask](https://flask.palletsprojects.com/en/master/) (Python)

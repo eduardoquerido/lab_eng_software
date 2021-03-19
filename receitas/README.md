@@ -57,16 +57,16 @@
 
 #### Para criar as migrações iniciais (após ter criado o banco)
 
-> python manage.py db init
+> flask db init
 
 #### Para atualizar as migrações (após ter criado o banco)
 
-> python manage.py db migrate
+> flask db migrate
 
 #### Para aplicar as migrações
 
-> python manage.py db upgrade
+> flask db upgrade
 
 #### Para rodar a aplicação
 
-> python manage.py runserver
+> flask run

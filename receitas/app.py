@@ -5,6 +5,7 @@ from flask import (
     url_for
 )
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 
@@ -12,6 +13,8 @@ app = Flask(__name__)
 app.config.from_object('config.DevelopmentConfig')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+migrate = Migrate(app, db)
 
 '''
     O modelo está sendo importado abaixo para não entrar em conflito de
