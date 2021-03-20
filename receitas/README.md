@@ -70,3 +70,7 @@
 #### Para rodar a aplicação
 
 > flask run
+
+OBS: Para rodar a aplicação com guinicorn estando na pasta RAIZ do projeto que se encontra o módulo /receita/wsgi.py:
+
+> gunicorn --bind 0.0.0.0:5000 wsgi:app
