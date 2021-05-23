@@ -16,7 +16,12 @@ Link: https://youtu.be/KLL80FPHefA
 
 Link: https://youtu.be/Hu9J6St5AWQ
 
+## Entrega 3 - Vídeo da Persistência de Dados com Mysql
+
+Link: https://youtu.be/HFMuTaBb1YA
+
+
 ## Tecnologias
 
 * [Flask](https://flask.palletsprojects.com/en/master/) (Python)
-* [Postgresql](https://www.postgresql.org/)
+* [Mysql](https://www.mysql.com/)
