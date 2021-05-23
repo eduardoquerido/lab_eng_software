@@ -14,22 +14,10 @@
         <li>{{ingrediente}}</li>
        {% endfor %}
     </ul>
-    <table>
-        <thead>
-            <tr>
-                <td><strong>Ingrediente</strong></td>
-                <td><strong>Quantidade</strong></td>
-            </tr>          
-        </thead>
-      {% for key, value in ingredientes.items() %}
-        <tbody>
-            <tr>
-              <td>{{key}}</td>
-              <td>{{value}}</td>
-            </tr>             
-        </tbody>
-      {%endfor%}
-  </table>        
+    <h3>Modo de Preparo</h3>
+    <ul>
+       <li>{{receita.modo_preparo}}</li>
+    </ul>        
     <br>
     <div>
         <a href="{{url_for('home')}}" class="btn btn-secondary ">Voltar</a>

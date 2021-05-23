@@ -2,20 +2,19 @@
 
 ## Utilizando Python 3.8.+
 
-## PostgreSQL
 
-#### Para instalar PostgreSQL no Linux
-> sudo apt-get install postgresql postgresql-contrib
+#### Criando Banco MySQL
+$ mysql -u root
 
-#### Para criar um superusuario no PostgreSQL
-> sudo -u postgres createuser --superuser <name_of_user>
+ou
 
-#### Para criar um banco utilizando o mesmo superusuario
-> sudo -u <name_of_user> createdb <name_of_database>
+$ sudo mysql
 
-##### Acessar o banco criado com o superusuario criado
-> psql -U <name_of_user> -d <name_of_database>
-
+``` sql
+mysql> CREATE USER 'dt_admin'@'localhost' IDENTIFIED BY 'admin2021';
+mysql> CREATE DATABASE receitas;
+mysql> GRANT ALL PRIVILEGES ON receitas . * TO 'dt_admin'@'localhost';
+```
 
 ## Virtualenv
 
@@ -55,14 +54,6 @@
 
 > sudo -u <name_of_user> createdb receitas
 
-#### Para criar as migrações iniciais (após ter criado o banco)
-
-> flask db init
-
-#### Para atualizar as migrações (após ter criado o banco)
-
-> flask db migrate
-
 #### Para aplicar as migrações
 
 > flask db upgrade
@@ -71,6 +62,12 @@
 
 > flask run
 
-OBS: Para rodar a aplicação com guinicorn estando na pasta RAIZ do projeto que se encontra o módulo /receita/wsgi.py:
+	OBS: Para rodar a aplicação com guinicorn estando na pasta RAIZ do projeto que se encontra o módulo /receita/wsgi.py:
 
 > gunicorn --bind 0.0.0.0:5000 wsgi:app
+
+	OBS2: Se for necessário recriar as migrações, delete o diretório "migrations" e rode os seguintes comandos:
+
+		$ flask db init
+		$ flask db migrate
+		$ flask db upgrade

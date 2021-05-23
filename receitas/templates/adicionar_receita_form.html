@@ -1,4 +1,5 @@
 {% extends  "base.html" %}
+
 {% block content %}
 <body>
     <div class="container">
@@ -14,25 +15,29 @@
 
             <form method="POST">
 
-                <label for="name">Nome da Receita</label>
-                <div class="form-row">
-                    <input class="form-control" type="text" placeholder="Nome da Receita" id="nome" name="nome">
-                </div>
+               {{form.hidden_tag()}}
+               <div class="form-group m-5">
+                   {{form.nome.label()}}
+                  {{form.nome(class="form-control")}}
+               </div>
+               <div class="form-group m-5">
+                   {{form.autor.label()}}
+                   {{form.autor(class="form-control")}}
+               </div >
+               <div id="ingredientes">
+                 <div id="ingrediente" class="form-group m-5">
+                     {{form.ingredientes.label()}}
+                     {{form.ingredientes(class="form-control")}}
+                 </div>
+               <div class="form-group m-5">
+                   {{form.modo_preparo.label()}}
+                   {{form.modo_preparo(class="form-control")}}
+               </div>
+               </div>
+<!--                 <button id="add_ingrediente">Adicionar Novo Ingrediente</button> -->
                 <br>
-                <div class="form-row">
-                    <label for="author">Autor</label>
-                    <input class="form-control" type="text" placeholder="Nome do Autor" id="autor" name="autor">
-                </div>
-                <br>
-                <div class="form-row ">
-                    <label for="published">Publicado em</label>
-                    <input class="form-control" type="date" placeholder="Publicado em" id="publicado" name="publicado_em">
-                </div>
-
-                <br>
-
                 <div>
-                    <button type="submit" class="button button-publicar">Publicar</button>
+                    {{form.publicar(class="button button-publicar")}}
                 </div>
                 <div>
                     <a href="{{url_for('home')}}" class="button button-voltar">Voltar</a>
@@ -43,4 +48,34 @@
         </div>
     </div>
 </body>
+{% endblock %}
+
+{% block scripts %}
+   <script>
+
+      // Wait until the window finishes loaded before executing any script
+      window.onload = function() {
+
+        // Initialize the activityNumber
+        var ingredienteNumber = 2;
+
+        // Select the add_activity button
+        var addButton = document.getElementById("add_ingrediente");
+
+        // Select the table element
+        var ingredientelistTable = document.getElementById("ingredientes");
+
+        // Attach handler to the button click event
+        addButton.onclick = function() {
+
+        // Add a new row to the table using the correct activityNumber
+          ingredientelistTable.innerHTML += `<div id="ingrediente${ingredienteNumber}" class="form-group m-5">{{form.ingredientes.label()}}{{form.ingredientes(class="form-control")}}</div>`
+
+          // Increment the activityNumber
+          ingredienteNumber += 1;
+        }
+
+      }
+
+   </script>
 {% endblock %}

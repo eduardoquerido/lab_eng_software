@@ -21,8 +21,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
+                    <a class="nav-link" href="{{url_for('lista_ingredientes')}}">Lista de Ingredientes</a>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" href="{{url_for('add_ingrediente_form')}}">Novo Ingrediente</a>
-                </li>                
+                </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{url_for('add_receita_form')}}">Nova Receita</a>
                 </li>
@@ -33,4 +36,5 @@
         {% block content %} {% endblock %}
     </div>
   </body>
+  {% block scripts %} {% endblock %}
 </html>
